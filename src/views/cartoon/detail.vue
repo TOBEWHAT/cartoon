@@ -3,7 +3,7 @@
     <div class="button_bar">
       <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
     </div>
-
+{{img}}
     <img :src="img">
     <div class="button_bar">
       <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
@@ -16,24 +16,27 @@ import { getNextchapter } from '@/api/cartoon.js'
 export default {
   data () {
     return {
-      routerpath:this.$route.query.path,
-      prevchapter:'',
-      img: process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + this.$route.query.path,
+      routerpath: this.$route.query.path,
+      prevchapter: '',
+      newpath: '',
+      img: process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + this.$route.query.path,
       query: {
         path: this.$route.query.path
       }
     }
   },
   methods: {
-    getPrevchapter(){
-      this.img = process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + this.prevchapter
+    getPrevchapter () {
+      this.img = process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + this.prevchapter
     },
     getNextchapter () {
-      let _this = this
+      const _this = this
+      this.img = ''
       getNextchapter({
-        path: _this.routerpath
+        path: _this.newpath ? _this.newpath : _this.routerpath
       }).then(res => {
-        _this.img = process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + res.data.data
+        console.log(process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + res.data.data)
+        _this.img = process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + res.data.data
       })
     }
   }
