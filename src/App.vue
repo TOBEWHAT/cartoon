@@ -58,6 +58,14 @@ body {
   height: 100%;
   &.darkmode {
     background-color: #000;
+    .navbar{
+      a{
+        color: #fff;
+        &.router-link-active {
+          color: #cf9236;
+        }
+      }
+    }
   }
   .mode-control {
     position: fixed;
@@ -65,6 +73,7 @@ body {
     right: 50px;
   }
 }
+
 
 #nav {
   margin-bottom: 18px;
@@ -76,12 +85,14 @@ body {
   .navbar{
     line-height: 1;
     padding: 19px 32px;
-    border-bottom: 1px rgba(0,0,0,.1) solid;
     a {
       margin-left: 18px;
       color: #2c3e50;
       text-decoration: none;
       &.router-link-exact-active {
+        color: #cf9236;
+      }
+      &:hover{
         color: #cf9236;
       }
     }

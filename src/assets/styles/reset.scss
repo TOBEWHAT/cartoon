@@ -122,3 +122,42 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+a{
+  text-decoration: none;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow:none;
+}
+
+/*element-ui*/
+.el-pager li{
+  font-weight: normal;
+}
+.el-pager li.active,
+.el-select-dropdown__item.selected,
+.el-switch__label.is-active{
+  color: #cf9236;
+ }
+ .el-select .el-input.is-focus .el-input__inner{
+  border-color: #cf9236!important;
+ }
+ .el-pagination .btn-prev,
+ .el-pagination .btn-next,
+ .el-pagination button:disabled,
+ .el-pager li{
+  background: none!important;
+ }
+
+ .darkmode .el-pager li{
+   color: #fff !important;
+ }
+ .el-pager li.active{
+  font-weight: bold;
+ }

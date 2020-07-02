@@ -4,7 +4,6 @@
              :rules="rules"
              ref="ruleForm"
              :label-position="labelPosition"
-             label-width="100px"
              class="login-ruleForm">
       <el-form-item prop="name">
         <el-input v-model="ruleForm.name"></el-input>
@@ -16,7 +15,7 @@
                   autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"
+        <el-button  class="btn bttn-unite bttn-lg bttn-warning btn-form"
                    @click="submitForm('ruleForm')">LOGIN</el-button>
       </el-form-item>
     </el-form>
@@ -30,7 +29,7 @@ import { codeLogin } from '@/api/login.js'
 export default {
   data () {
     return {
-      labelPosition: 'right',
+      labelPosition: 'center',
       dataUser: '',
       ruleForm: {
         name: 'Mrli',
@@ -77,8 +76,12 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   .login-ruleForm {
-    width: 450px;
+    max-width: 450px;
+    padding: 0 20px;
     margin: 0 auto;
+  }
+  .btn-form{
+    font-size: 16px;
   }
 }
 </style>

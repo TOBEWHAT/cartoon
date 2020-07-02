@@ -14,7 +14,7 @@
                      @current-change="handleCurrentChange"
                      :current-page="currentPage"
                      :page-size="pageSize"
-                     layout="total, sizes, prev, pager, next, jumper"
+                     layout="prev, pager, next"
                      :total="total">
       </el-pagination>
     </div>
@@ -29,7 +29,7 @@ export default {
       listpage: '',
       currentPage: 1,
       total: null,
-      pageSize: 20
+      pageSize: 100
     }
   },
   created: function () {
@@ -60,22 +60,40 @@ export default {
 
  <style lang="scss" scoped>
 .pagelist {
+  padding-bottom: 52px;
   .pageination {
     margin-top: 32px;
   }
   .page-number {
     margin: 0 auto;
-    width: 860px;
+    max-width: 860px;
     text-align: left;
+    display: flex;
+    flex-direction: space-between;
+    flex-wrap: wrap;
     li {
       line-height: 1;
-      padding: 6px 10px;
-      border: 1px #c6d9f5 solid;
-      color: #c6d9f5;
+      padding: 8px 12px;
+      border: 1px #cf9236 solid;
+      color: #cf9236;
       text-align: center;
       display: inline-block;
       margin: 8px;
       font-size: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      a {
+        color: #cf9236;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      &:hover{
+        background-color: rgba($color: #cf9236, $alpha: 0.5);
+        a{
+          color: #fff;
+        }
+      }
     }
   }
 }

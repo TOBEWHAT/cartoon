@@ -1,7 +1,7 @@
 <template>
   <div class="cartoon-list">
-    <ul>
-      <li class="cover"
+    <div class="coverbox">
+      <div class="cover"
           v-for="(item,index) in list.data"
           :key="index">
         <dl>
@@ -18,12 +18,12 @@
                 <img src="http://106.13.39.81:8089/images/cover/yaoshenji_fengmian.jpg" />
               </span>
             </router-link>
-            <span v-else></span>
+            <span v-else><img style="opacity:0" src="http://106.13.39.81:8089/images/cover/yaoshenji_fengmian.jpg" /></span>
           </dt>
           <dd></dd>
         </dl>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,25 +50,25 @@ export default {
 
 <style lang="scss" scoped>
 .cartoon-list {
-  width: 784px;
-  max-width: 100%;
   margin: 0 auto;
-  ul {
-    display: block;
+  max-width: 780px;
+  .coverbox {
+    display: flex;
+    flex-direction: space-between;
+    flex-wrap: wrap;
+    padding: 0 1%;
     .cover {
-      width: 180px;
-      margin: 8px;
-      display: block;
-      float: left;
+      width: 23%;
+      min-width: 23%;
+      max-width: 23%;
+      margin: 8px 1%;
+      background-color: #eee;
+      border-radius: 4px;
+      display: inline-block;
       dt {
-        span {
-          width: 180px;
-          height: 240px;
-          background-color: #eee;
-          display: block;
-        }
         img {
           width: 100%;
+          border-radius: 4px;
         }
       }
     }

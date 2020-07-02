@@ -1,12 +1,13 @@
 <template>
   <div class="cartoon-detail">
     <div class="button_bar">
-      <!-- <button @click="getPrevchapter">上一章</button> -->
-      <button @click="getNextchapter">下一章</button>
+      <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
     </div>
 
-    <img :src="img" style="opacity:.07">
-
+    <img :src="img">
+    <div class="button_bar">
+      <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
+    </div>
   </div>
 </template>
 
@@ -32,10 +33,6 @@ export default {
       getNextchapter({
         path: _this.routerpath
       }).then(res => {
-        // console.log(_this.routerpath)
-        // console.log(res.data.data)
-        // _this.prevchapter=_this.routerpath
-        // _this.routerpath = res.data.data
         _this.img = process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + res.data.data
       })
     }
@@ -44,8 +41,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .cartoon-detail {
-//   .button_bar {
-//   }
-// }
+.cartoon-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 52px;
+  padding-top: 42px;
+  .button_bar {
+    button{
+      font-size: 16px;
+    }
+  }
+  img{
+    max-width: 100%;
+    margin: 32px 0;
+  }
+}
 </style>
