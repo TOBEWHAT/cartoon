@@ -23,9 +23,10 @@ const getdetail = query => {
 }
 const getNextchapter = query => {
   return request({
-    url: '/user/filelist',
-    method: 'POST',
-    data: query
+    url: '/user/nextfiledata?path=' + query.path,
+    method: 'POST'
+    // ,
+    // data: query
   })
 }
 const tests = query => {

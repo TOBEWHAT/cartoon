@@ -69,7 +69,6 @@ export default {
         }
         img {
           width: 100%;
-          opacity: 0.2;
         }
       }
     }

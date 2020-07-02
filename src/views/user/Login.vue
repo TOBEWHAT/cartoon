@@ -6,12 +6,10 @@
              :label-position="labelPosition"
              label-width="100px"
              class="login-ruleForm">
-      <el-form-item label="用戶名"
-                    prop="name">
+      <el-form-item prop="name">
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
-      <el-form-item label="密码"
-                    prop="pass">
+      <el-form-item prop="pass">
         <el-input type="password"
                   ref="ruleForm"
                   v-model="ruleForm.pass"
@@ -19,7 +17,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary"
-                   @click="submitForm('ruleForm')">登陸</el-button>
+                   @click="submitForm('ruleForm')">LOGIN</el-button>
       </el-form-item>
     </el-form>
     <div>

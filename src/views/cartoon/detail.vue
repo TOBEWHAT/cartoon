@@ -1,52 +1,42 @@
 <template>
   <div class="cartoon-detail">
     <div class="button_bar">
+      <!-- <button @click="getPrevchapter">上一章</button> -->
       <button @click="getNextchapter">下一章</button>
     </div>
 
-    <img style="opacity:.03"
-         :src="img">
+    <img :src="img" style="opacity:.07">
 
   </div>
 </template>
 
 <script>
-// import request from '@/utils/request'
-import { getdetail, getNextchapter, tests } from '@/api/cartoon.js'
+import { getNextchapter } from '@/api/cartoon.js'
 export default {
   data () {
     return {
-      img: 'http://106.13.39.81:8100/api/user/filedatd?path=' + this.$route.query.path,
+      routerpath:this.$route.query.path,
+      prevchapter:'',
+      img: process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + this.$route.query.path,
       query: {
         path: this.$route.query.path
       }
     }
   },
-  created: function () {
-    this.getdetail()
-    // this.tests()
-  },
   methods: {
-    tests () {
-      return tests({
-
-      }).then(res => {
-        this.tempimg = res.data
-        console.log(this.tempimg)
-      })
-    },
-    getdetail () {
-      return getdetail({
-        path: this.$route.query.path
-      }).then(res => {
-        console.log(res)
-      })
+    getPrevchapter(){
+      this.img = process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + this.prevchapter
     },
     getNextchapter () {
+      let _this = this
       getNextchapter({
-        url: ''
+        path: _this.routerpath
       }).then(res => {
-        console.log(res)
+        // console.log(_this.routerpath)
+        // console.log(res.data.data)
+        // _this.prevchapter=_this.routerpath
+        // _this.routerpath = res.data.data
+        _this.img = process.env.VUE_APP_BASE_URL+'user/filedatd?path=' + res.data.data
       })
     }
   }
