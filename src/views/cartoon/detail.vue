@@ -1,13 +1,18 @@
 <template>
   <div class="cartoon-detail">
-    <!-- {{this.$route.query.path}} -->
-    <img :src="img">
+    <div class="button_bar">
+      <button @click="getNextchapter">下一章</button>
+    </div>
+
+    <img style="opacity:.03"
+         :src="img">
+
   </div>
 </template>
 
 <script>
 // import request from '@/utils/request'
-import { getdetail, tests } from '@/api/cartoon.js'
+import { getdetail, getNextchapter, tests } from '@/api/cartoon.js'
 export default {
   data () {
     return {
@@ -36,13 +41,21 @@ export default {
       }).then(res => {
         console.log(res)
       })
+    },
+    getNextchapter () {
+      getNextchapter({
+        url: ''
+      }).then(res => {
+        console.log(res)
+      })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.cartoon-detail {
-
-}
+// .cartoon-detail {
+//   .button_bar {
+//   }
+// }
 </style>
