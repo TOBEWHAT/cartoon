@@ -1,12 +1,13 @@
 <template>
   <div class="cartoon-detail">
     <div class="button_bar">
-      <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
+      <button @click="getNextchapter"
+              class="btn bttn-unite bttn-lg bttn-warning">Next</button>
     </div>
-{{img}}
     <img :src="img">
     <div class="button_bar">
-      <button @click="getNextchapter" class="btn bttn-unite bttn-lg bttn-warning">Next</button>
+      <button @click="getNextchapter"
+              class="btn bttn-unite bttn-lg bttn-warning">Next</button>
     </div>
   </div>
 </template>
@@ -26,14 +27,11 @@ export default {
     }
   },
   methods: {
-    getPrevchapter () {
-      this.img = process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + this.prevchapter
-    },
     getNextchapter () {
       const _this = this
       this.img = ''
       getNextchapter({
-        path: _this.newpath ? _this.newpath : _this.routerpath
+        path: _this.routerpath
       }).then(res => {
         console.log(process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + res.data.data)
         _this.img = process.env.VUE_APP_BASE_URL + 'user/filedatd?path=' + res.data.data
@@ -50,11 +48,11 @@ export default {
   padding-bottom: 52px;
   padding-top: 42px;
   .button_bar {
-    button{
+    button {
       font-size: 16px;
     }
   }
-  img{
+  img {
     max-width: 100%;
     margin: 32px 0;
   }
